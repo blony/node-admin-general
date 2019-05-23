@@ -1,5 +1,5 @@
 const user = require('./user')
 
 module.exports = app => {
-    app.get('/login',user.login)
+    app.post('/user/login',user.login)
 }
