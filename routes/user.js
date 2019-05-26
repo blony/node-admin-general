@@ -22,14 +22,24 @@ exports.login = (req,res) => {
 })
 }
 exports.userInfo = (req, res) => {
-
+        const { token } = req.body
+        
     fs.readFile('../data/user.json',(err,data)=> {
         if (err) {
             console.log(err)
         }
+        const info = data.toString()[token]
         console.log(data.toString())
+        if (!info) {
+            return {
+                code: 50008,
+                message:'登录失败，无法获取用户详情'
+            }
+        }
+        return res.json({
+            code:20000,
+            data:info
+        })
     })
-    res.json({
-
-    })
+    
 }
