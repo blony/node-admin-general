@@ -53,3 +53,9 @@ exports.userInfo = (req, res) => {
     
     
 }
+exports.logout = (req,res) => {
+    res.json({
+    code:20000,
+    data:'success'
+})
+}
